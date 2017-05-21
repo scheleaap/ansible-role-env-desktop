@@ -1,0 +1,14 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+docker:
+  containers:
+    - name: ansible-role-env-desktop
+      image: ubuntu
+      image_version: zesty
+      ansible_groups:
+        - group1
+verifier:
+  name: testinfra

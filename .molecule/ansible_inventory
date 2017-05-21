@@ -1,0 +1,5 @@
+[all]
+ansible-role-env-desktop ansible_connection=docker
+
+[group1]
+ansible-role-env-desktop

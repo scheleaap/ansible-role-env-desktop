@@ -1,0 +1,13 @@
+---
+- name: "Refresh apt cache"
+  become: true
+  apt:
+    update_cache: true
+- name: "Install desktop packages"
+  become: true
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - chromium-browser
+    - thunderbird
+    - gitg

@@ -1,0 +1,17 @@
+---
+- name: "Check whether Unity is installed"
+  command: dpkg -l unity
+  register: unity_check
+  failed_when: unity_check.rc > 1
+- name: "Check whether Unity 2D is installed"
+  command: dpkg -l unity-2d
+  register: unity_2d_check
+  failed_when: unity_2d_check.rc > 1
+- name: "Always show menus in Ubuntu"
+  shell: "gsettings set com.canonical.Unity always-show-menus true"
+  when:
+    - unity_check.rc == 0 or unity_2d_check.rc == 0
+- name: "Use local menus in Ubuntu"
+  shell: "gsettings set com.canonical.Unity integrated-menus false"
+  when:
+    - unity_check.rc == 0 or unity_2d_check.rc == 0

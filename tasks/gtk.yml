@@ -1,0 +1,27 @@
+---
+#- name: "Ensure /home/{{ env_common_username }}/.config/gtk-3.0 exists"
+#  file:
+#    path: /home/{{ env_common_username }}/.config/gtk-3.0
+#    state: directory
+#    recurse: yes
+#- name: "Make tabs in gnome-terminal easier to distinguish"
+#  blockinfile:
+#    dest: /home/{{ env_common_username }}/.config/gtk-3.0/gtk.css
+#    create: yes
+#    marker: "/* {mark} ANSIBLE MANAGED BLOCK - gnome-terminal tabs */"
+#    block: |
+#      TerminalWindow,
+#      TerminalWindow.background {
+#          background-image: none;
+#          background-color: @dark_bg_color;
+#          color: @dark_fg_color;
+#      }
+#      TerminalWindow .notebook {
+#          padding: 0;
+#      }
+#      TerminalWindow .notebook tab.top {
+#          background-color: alpha(white, 0.1);
+#      }
+#      TerminalWindow .notebook tab.top:active {
+#          background-color: alpha(white, 0.4);
+#      }

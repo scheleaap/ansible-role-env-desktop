@@ -1,0 +1,20 @@
+galaxy_info:
+  author: scheleaap
+  description: Stuff I want on desktops
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+    - name: Ubuntu
+      versions:
+      - trusty
+      - utopic
+      - vivid
+      - wily
+      - xenial
+      - zesty
+    - name: Debian
+      versions:
+      - jessie
+  galaxy_tags: []
+
+dependencies: []

@@ -1,0 +1,35 @@
+---
+- name: "Ensure the WebUpd8 Atom PPA is present"
+  become: true
+  apt_repository:
+    repo: 'ppa:webupd8team/atom'
+- name: "Ensure Atom is installed"
+  become: true
+  apt:
+    name: atom
+    #update_cache: true
+- name: Ensure /home/{{ env_common_username }}/.atom exists
+  file:
+    path: /home/{{ env_common_username }}/.atom
+    state: directory
+    owner: "{{ env_common_username }}"
+    group: "{{ env_common_username }}"
+- name: "Configure Atom plugin markdown-preview"
+  blockinfile:
+    dest: /home/{{ env_common_username }}/.atom/styles.less
+    create: yes
+    owner: "{{ env_common_username }}"
+    group: "{{ env_common_username }}"
+    marker: "// {mark} ANSIBLE MANAGED BLOCK - markdown-preview"
+    block: |
+      .markdown-preview,
+      .markdown-preview[data-use-github-style] {
+        table, table tr, table tr:nth-child(even), table td {
+          background-color: rgba(0, 0, 0, 0);
+        }
+      }
+- name: "Configure Atom as the git editor"
+  git_config:
+    name: core.editor
+    value: atom --wait
+    scope: global
