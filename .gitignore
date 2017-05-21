@@ -1,7 +1,15 @@
-.vagrant
-src/group_vars/*.yml
-src/host_vars/*.yml
-src/hosts
-*.log
-*.retry
+# General
 *~
+*.log
+
+# Python
+*.pyc
+__pycache__/
+
+# Other
+.cache
+.molecule
+.vagrant
+
+# Mine
+vault
