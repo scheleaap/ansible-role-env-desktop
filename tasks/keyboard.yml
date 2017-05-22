@@ -59,7 +59,7 @@
     create: yes
     owner: root
     group: root
-    mode: 644
+    mode: 0644
     regexp: ^XKBOPTIONS=
     line: XKBOPTIONS="numpad:microsoft"
 - name: "Ensure /usr/share/X11/xkb/ subdirectories exist"
@@ -69,7 +69,7 @@
     recurse: yes
     owner: root
     group: root
-    mode: 755
+    mode: 0755
   with_items:
     - symbols
     - rules
@@ -80,7 +80,7 @@
     dest: /usr/share/X11/xkb/symbols/wout
     owner: root
     group: root
-    mode: 644
+    mode: 0644
 - name: "Register the custom keyboard layout in rules/evdev.xml"
   become: true
   blockinfile:
