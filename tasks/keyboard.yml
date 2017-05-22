@@ -3,7 +3,6 @@
   file:
     path: /home/{{ env_common_username }}/
     state: directory
-    recurse: yes
     #owner: "{{ env_common_username }}"
     #group: "{{ env_common_username }}"
 - name: "Make the arrow keys work in tree views (GTK 2)"
@@ -24,7 +23,6 @@
   file:
     path: /home/{{ env_common_username }}/.config/gtk-3.0
     state: directory
-    recurse: yes
     #owner: "{{ env_common_username }}"
     #group: "{{ env_common_username }}"
 - name: "Make the arrow keys work in tree views (GTK 3)"
@@ -66,7 +64,6 @@
   file:
     path: /usr/share/X11/xkb/{{ item }}/
     state: directory
-    recurse: yes
     owner: root
     group: root
     mode: 0755
