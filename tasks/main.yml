@@ -4,4 +4,3 @@
 - include: keyboard.yml
 - include: software.yml
 - include: atom.yml
-- include: pidgin.yml

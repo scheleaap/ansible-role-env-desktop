@@ -1,4 +1,8 @@
 ---
+- name: "Ensure the IntelliJ PPA is present"
+  become: true
+  apt_repository:
+    repo: ppa:mmk2410/intellij-idea
 - name: "Refresh apt cache"
   become: true
   apt:
@@ -11,3 +15,4 @@
     - chromium-browser
     - thunderbird
     - gitg
+    - intellij-idea-community
