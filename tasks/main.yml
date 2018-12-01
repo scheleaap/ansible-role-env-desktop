@@ -4,3 +4,8 @@
 - include: keyboard.yml
 - include: software.yml
 - include: atom.yml
+- name: "Check out the notes repository"
+  git:
+    repo: https://scheleaap@github.com/scheleaap/dev-notes.git
+    dest: /home/{{ env_common_username }}/Documents/dev-notes
+    version: master
