@@ -10,9 +10,10 @@
 - name: "Install desktop packages"
   become: true
   apt:
-    name: "{{ item }}"
-  with_items:
-    - chromium-browser
-    - thunderbird
-    - gitg
-    - intellij-idea-community
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - chromium-browser
+      - thunderbird
+      - gitg
+      - intellij-idea-community
