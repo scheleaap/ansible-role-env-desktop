@@ -13,6 +13,8 @@
     name: "{{ packages }}"
   vars:
     packages:
+      - exfat-fuse
+      - exfat-utils
       - chromium-browser
       - thunderbird
       - gitg
