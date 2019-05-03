@@ -1,12 +1,14 @@
 ---
 - name: "Check whether Unity is installed"
-  command: dpkg -l unity
+  command: dpkg-query -W -f='${Status}' unity | grep 'install ok installed'
   register: unity_check
-  failed_when: unity_check.rc > 1
+  failed_when: no
+  changed_when: no
 - name: "Check whether Unity 2D is installed"
-  command: dpkg -l unity-2d
+  command: dpkg-query -W -f='${Status}' unity-2d | grep 'install ok installed'
   register: unity_2d_check
-  failed_when: unity_2d_check.rc > 1
+  failed_when: no
+  changed_when: no
 - name: "Always show menus in Ubuntu"
   shell: "gsettings set com.canonical.Unity always-show-menus true"
   when:
