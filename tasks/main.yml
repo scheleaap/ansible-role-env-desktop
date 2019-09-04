@@ -3,7 +3,8 @@
 - include: unity.yml
 - include: keyboard.yml
 - include: software.yml
-- include: atom.yml
+#- include: atom.yml
+- include: vscode.yml
 - name: "Check out the notes repository"
   git:
     repo: https://scheleaap@github.com/scheleaap/dev-notes.git

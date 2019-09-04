@@ -1,0 +1,30 @@
+---
+- name: "Ensure /etc/sources.list.d exists"
+  become: true
+  file:
+    path: /etc/sources.list.d
+    state: directory
+    mode: 0755
+- name: "Ensure GnuPG is installed"
+  become: true
+  apt:
+    name: gnupg
+    state: present
+- name: "Ensure Microsoft APT key is present"
+  become: true
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+- name: "Ensure VSCode APT repo is present"
+  become: true
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    state: present
+    filename: vscode
+    update_cache: yes
+    validate_certs: no
+- name: "Ensure VSCode is installed"
+  become: true
+  apt:
+    name: vscode
+    #update_cache: true
