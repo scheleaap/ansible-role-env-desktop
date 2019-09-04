@@ -1,12 +1,18 @@
 ---
-- include: gtk.yml
-- include: unity.yml
+#- include: gtk.yml
+- include: intellij.yml
 - include: keyboard.yml
 - include: software.yml
-#- include: atom.yml
+- include: unity.yml
 - include: vscode.yml
+- name: "Ensure ~/dev exists"
+  become: true
+  file:
+    path: /home/{{ env_common_username }}/dev
+    state: directory
+    mode: 0755
 - name: "Check out the notes repository"
   git:
     repo: https://scheleaap@github.com/scheleaap/dev-notes.git
-    dest: /home/{{ env_common_username }}/Documents/dev-notes
+    dest: /home/{{ env_common_username }}/dev/dev-notes
     version: master
