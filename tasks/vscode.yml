@@ -26,5 +26,5 @@
 - name: "Ensure VSCode is installed"
   become: true
   apt:
-    name: vscode
+    name: code
     #update_cache: true
