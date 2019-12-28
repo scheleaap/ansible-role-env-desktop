@@ -28,3 +28,8 @@
   apt:
     name: code
     #update_cache: true
+- name: "Configure VSCode as the git editor"
+  git_config:
+    name: core.editor
+    value: code --wait
+    scope: global
