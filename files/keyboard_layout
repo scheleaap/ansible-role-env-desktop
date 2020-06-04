@@ -7,14 +7,19 @@ xkb_symbols "basic" {
 
     include "eurosign(e)"
 
-    key <AD03> { [	   e,          E,        ediaeresis,           Ediaeresis ] };
-    key <AD04> { [	   r,          R,        eacute,               Eacute ] };
-    key <AD07> { [	   u,          U,        udiaeresis,           Udiaeresis ] };
-    key <AD08> { [	   i,          I,        idiaeresis,           Idiaeresis ] };
-    key <AD09> { [	   o,          O,        odiaeresis,           Odiaeresis ] };
-
-    key <AC01> { [	   a,          A,        adiaeresis,           Adiaeresis ] };
-    key <AC02> { [	   s,          S,        ssharp,               section ] };
-
     include "level3(ralt_switch)"
+
+    key <AD03> { [      e,          E,        ediaeresis,      Ediaeresis  ] };
+    key <AD04> { [      r,          R,        eacute,          Eacute      ] };
+    key <AD07> { [      u,          U,        udiaeresis,      Udiaeresis  ] };
+    key <AD08> { [      i,          I,        idiaeresis,      Idiaeresis  ] };
+    key <AD09> { [      o,          O,        odiaeresis,      Odiaeresis  ] };
+    key <AC01> { [      a,          A,        adiaeresis,      Adiaeresis  ] };
+    key <AC02> { [      s,          S,        ssharp,          section     ] };
+
+    key <KP8>  { [      Up,         KP_8                                   ] };
+    key <KP4>  { [      Left,       KP_4                                   ] };
+    key <KP6>  { [      Right,      KP_6                                   ] };
+    key <KP2>  { [      Down,       KP_2                                   ] };
+
 };
