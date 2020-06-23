@@ -1,5 +1,6 @@
 ---
 #- include: gtk.yml
+- include: gnome.yml
 - include: intellij.yml
 - include: keyboard.yml
 - include: software.yml

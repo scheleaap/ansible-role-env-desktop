@@ -1,0 +1,19 @@
+---
+- name: Switch windows forward with Alt-Tab
+  shell: "gsettings set org.gnome.desktop.wm.keybindings switch-windows \"['<Alt>Tab']\""
+- name: Switch windows backward with Shift-Alt-Tab
+  shell: "gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward \"['<Shift><Alt>Tab']\""
+- name: Switch applications forward with Super-Tab
+  shell: "gsettings set org.gnome.desktop.wm.keybindings switch-applications \"['<Super>Tab']\""
+- name: Switch applications backward with Shift-Super-Tab
+  shell: "gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward \"['<Shift><Super>Tab']\""
+- name: Disable Alt+F7 to move windows
+  shell: "gsettings set org.gnome.desktop.wm.keybindings begin-move \"[]\""
+- name: Disable Alt+F8 to resize windows
+  shell: "gsettings set org.gnome.desktop.wm.keybindings begin-resize \"[]\""
+- name: Minimize window when clicking on the dock icon
+  shell: "gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'"
+- name: Do not show applications on other workspaces on the dock
+  shell: "gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true"
+- name: "Enable fractional scaling"
+  shell: "gsettings set org.gnome.mutter experimental-features \"['x11-randr-fractional-scaling', 'scale-monitor-framebuffer']\""
