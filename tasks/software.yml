@@ -9,9 +9,12 @@
     name: "{{ packages }}"
   vars:
     packages:
+      - chromium-browser
       - exfat-fuse
       - exfat-utils
-      - chromium-browser
-      - thunderbird
+      - fonts-roboto
       - gitg
+      - gnome-tweak-tool
+      - thunderbird
+      - ttf-mscorefonts-installer
       - workrave
