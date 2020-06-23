@@ -4,7 +4,6 @@
 - include: keyboard.yml
 - include: software.yml
 - include: spotify.yml
-- include: unity.yml
 - include: vscode.yml
 - name: "Ensure ~/dev exists"
   become: true
