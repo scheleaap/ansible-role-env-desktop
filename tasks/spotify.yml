@@ -1,0 +1,30 @@
+---
+- name: "Ensure /etc/sources.list.d exists"
+  become: true
+  file:
+    path: /etc/sources.list.d
+    state: directory
+    mode: 0755
+- name: "Ensure GnuPG is installed"
+  become: true
+  apt:
+    name: gnupg
+    state: present
+- name: "Ensure Spotify APT key is present"
+  become: true
+  apt_key:
+    url: https://download.spotify.com/debian/pubkey.gpg
+    state: present
+- name: "Ensure Spotify APT repo is present"
+  become: true
+  apt_repository:
+    repo: deb http://repository.spotify.com stable non-free
+    state: present
+    filename: spotify
+    update_cache: yes
+    validate_certs: no
+- name: "Ensure Spotify is installed"
+  become: true
+  apt:
+    name: spotify-client
+    #update_cache: true
