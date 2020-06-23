@@ -17,3 +17,9 @@
     repo: https://scheleaap@github.com/scheleaap/dev-notes.git
     dest: /home/{{ env_common_username }}/dev/dev-notes
     version: master
+- name: "Ensure crash report popups are disabled"
+  become: true
+  lineinfile:
+    dest: /etc/default/apport
+    regexp: ^enabled=
+    line: enabled=0
