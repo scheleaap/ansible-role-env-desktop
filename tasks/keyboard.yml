@@ -84,14 +84,14 @@
   blockinfile:
     dest: /usr/share/X11/xkb/rules/evdev.xml
     create: no
-    insertafter: "    <layoutList>"
+    insertafter: "  <layoutList>"
     marker: "<!-- {mark} ANSIBLE MANAGED BLOCK - Custom keyboard layout -->"
     block: |
       <layout>
         <configItem>
           <name>wout</name>
 
-          <shortDescription>English (US, Wout)</shortDescription>
+          <shortDescription>us_wout</shortDescription>
           <description>English (US, Wout)</description>
         </configItem>
         <variantList>
