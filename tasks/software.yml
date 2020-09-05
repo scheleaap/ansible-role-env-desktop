@@ -10,6 +10,7 @@
   vars:
     packages:
       - chromium-browser
+      - doublecmd-gtk
       - exfat-fuse
       - exfat-utils
       - fonts-roboto
