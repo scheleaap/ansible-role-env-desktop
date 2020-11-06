@@ -5,7 +5,7 @@ xkb_symbols "basic" {
 
     include "us(basic)"
 
-    include "eurosign(e)"
+    include "eurosign(5)"
 
     include "level3(ralt_switch)"
 

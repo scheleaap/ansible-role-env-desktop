@@ -1,2 +1,5 @@
 ---
-# handlers file for env-desktop
+- name: "Compile the keyboard layout data"
+  listen: "reconfigure keyboard"
+  become: true
+  shell: "dpkg-reconfigure xkb-data"

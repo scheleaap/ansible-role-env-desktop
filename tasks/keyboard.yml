@@ -79,6 +79,8 @@
     owner: root
     group: root
     mode: 0644
+  notify:
+    - reconfigure keyboard
 - name: "Register the custom keyboard layout in rules/evdev.xml"
   become: true
   blockinfile:
@@ -90,13 +92,11 @@
       <layout>
         <configItem>
           <name>wout</name>
-
           <shortDescription>wout</shortDescription>
           <description>English (US, Wout)</description>
         </configItem>
         <variantList>
         </variantList>
       </layout>
-- name: "Compile the keyboard layout data"
-  become: true
-  shell: "dpkg-reconfigure xkb-data"
+  notify:
+    - reconfigure keyboard
