@@ -13,7 +13,7 @@
 - name: "Ensure Spotify APT key is present"
   become: true
   apt_key:
-    url: https://download.spotify.com/debian/pubkey.gpg
+    url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
     state: present
 - name: "Ensure Spotify APT repo is present"
   become: true
