@@ -23,7 +23,7 @@
 - name: "Ensure Jetbrains APT repo is present"
   become: true
   apt_repository:
-    repo: deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main
+    repo: deb [signed-by=/usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main
     state: present
     filename: jetbrains
     update_cache: yes
