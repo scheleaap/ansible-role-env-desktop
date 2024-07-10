@@ -1,11 +1,10 @@
 ---
-#- include: gtk.yml
-- include: gnome.yml
-- include: intellij.yml
-- include: keyboard.yml
-- include: software.yml
-- include: spotify.yml
-- include: vscode.yml
+#- import_tasks: gtk.yml
+- import_tasks: gnome.yml
+- import_tasks: keyboard.yml
+- import_tasks: apt-repos.yml
+- import_tasks: software.yml
+- import_tasks: git.yml
 - name: "Ensure ~/dev exists"
   become: true
   file:

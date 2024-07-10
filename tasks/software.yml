@@ -1,21 +1,47 @@
 ---
-- name: "Refresh apt cache"
-  become: true
-  apt:
-    update_cache: true
-- name: "Install desktop packages"
+- name: "Install desktop packages (APT)"
   become: true
   apt:
     name: "{{ packages }}"
+    update_cache: true
   vars:
     packages:
+      - baobab
       - chromium-browser
+      - code
+      - dconf-editor
+      - digikam
+      - dosfstools
       - doublecmd-gtk
-      - exfat-fuse
-      - exfat-utils
+      - exfatprogs
       - fonts-roboto
+      - gimp
       - gitg
-      - gnome-tweak-tool
+      - gnome-shell-extensions
+      - gnome-tweaks
+      - gparted
+      - inkscape
+      - mtools
+      - seafile-gui
+      - signal-desktop
+      - spotify-client
       - thunderbird
       - ttf-mscorefonts-installer
       - workrave
+      - workrave-gnome
+- name: "Install desktop packages (Snap)"
+  become: true
+  snap:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - whatsapp-for-linux
+- name: "Enable autostart"
+  template:
+    src: templates/autostart.desktop.j2
+    dest: /home/{{ env_common_username }}/.config/autostart/{{ item.name }}.desktop
+  loop:
+    - name: Workrave
+      command: workrave
+    - name: Seafile
+      command: seafile-applet
