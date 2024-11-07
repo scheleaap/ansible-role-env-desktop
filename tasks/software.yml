@@ -7,10 +7,12 @@
   vars:
     packages:
       - baobab
+      - btop
       - chromium-browser
       - code
       - dconf-editor
       - digikam
+      - dos2unix
       - dosfstools
       - doublecmd-gtk
       - exfatprogs
@@ -20,6 +22,8 @@
       - gnome-shell-extensions
       - gnome-tweaks
       - gparted
+      - gpick
+      - guvcview
       - inkscape
       - mtools
       - seafile-gui
