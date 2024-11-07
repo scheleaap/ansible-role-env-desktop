@@ -27,6 +27,7 @@
       - spotify-client
       - thunderbird
       - ttf-mscorefonts-installer
+      - ubuntu-restricted-extras
       - workrave
       - workrave-gnome
 - name: "Install desktop packages (Snap)"
@@ -35,6 +36,7 @@
     name: "{{ packages }}"
   vars:
     packages:
+      - vlc
       - whatsapp-for-linux
 - name: "Enable autostart"
   template:
