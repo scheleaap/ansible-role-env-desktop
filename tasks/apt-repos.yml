@@ -94,7 +94,7 @@
 - name: "Ensure Signal APT repo is present"
   become: true
   ansible.builtin.deb822_repository:
-    name: seafile
+    name: signal
     types: [deb]
     uris: "https://updates.signal.org/desktop/apt"
     signed_by: "https://updates.signal.org/desktop/apt/keys.asc"
