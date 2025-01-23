@@ -41,7 +41,6 @@
   vars:
     packages:
       - vlc
-      - whatsapp-for-linux
 - name: "Enable autostart"
   template:
     src: templates/autostart.desktop.j2
