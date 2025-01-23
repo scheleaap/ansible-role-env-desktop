@@ -32,3 +32,5 @@
   shell: "gsettings set org.gnome.shell.extensions.dash-to-dock show-icons-emblems false"
 - name: "Do not show the Applications icon"
   shell: "gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button false"
+- name: "Do not show the Trash icon"
+  shell: "gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false"
