@@ -42,11 +42,12 @@
     packages:
       - vlc
 - name: "Ensure ~/.config/autostart exists"
+  become: true
   file:
     path: /home/{{ env_common_username }}/.config/autostart
     state: directory
     owner: "{{ env_common_username }}"
-    group : "{{ env_common_username }}"
+    group: "{{ env_common_username }}"
     mode: 0755
 - name: "Enable autostart"
   template:

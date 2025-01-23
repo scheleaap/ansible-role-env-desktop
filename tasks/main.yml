@@ -10,6 +10,8 @@
   file:
     path: /home/{{ env_common_username }}/dev
     state: directory
+    owner: "{{ env_common_username }}"
+    group: "{{ env_common_username }}"
     mode: 0755
 - name: "Check out the notes repository"
   git:
