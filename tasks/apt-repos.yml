@@ -10,11 +10,6 @@
   apt:
     name: gnupg
     state: present
-- name: "Ensure the IntelliJ PPA is not present"
-  become: true
-  apt_repository:
-    repo: ppa:mmk2410/intellij-idea
-    state: absent
 - name: "Ensure Jetbrains APT repo is present"
   become: true
   ansible.builtin.deb822_repository:
@@ -81,16 +76,17 @@
     suites: [stable]
     components: [main]
     architectures: amd64
-- name: "Ensure Seafile APT repo is present"
-  become: true
-  ansible.builtin.deb822_repository:
-    name: seafile
-    types: [deb]
-    uris: "https://linux-clients.seafile.com/seafile-deb/{{ ansible_distribution_release }}/"
-    signed_by: "https://linux-clients.seafile.com/seafile.asc"
-    suites: [stable]
-    components: [main]
-    architectures: amd64
+# 2026-10-09 Disabled because no longer supported
+# - name: "Ensure Seafile APT repo is present"
+#   become: true
+#   ansible.builtin.deb822_repository:
+#     name: seafile
+#     types: [deb]
+#     uris: "https://linux-clients.seafile.com/seafile-deb/{{ ansible_distribution_release }}/"
+#     signed_by: "https://linux-clients.seafile.com/seafile.asc"
+#     suites: [stable]
+#     components: [main]
+#     architectures: amd64
 - name: "Ensure Signal APT repo is present"
   become: true
   ansible.builtin.deb822_repository:

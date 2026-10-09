@@ -1,2 +1,2 @@
 ---
-env_common_username: "{{ ansible_user_id }}"
+env_common_username: "{{ ansible_facts['user_id'] }}"
