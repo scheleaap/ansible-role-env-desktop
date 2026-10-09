@@ -5,6 +5,8 @@
     state: directory
     #owner: "{{ env_common_username }}"
     #group: "{{ env_common_username }}"
+
+# Arrow keys and numpad
 - name: "Make the arrow keys work in tree views (GTK 2)"
   blockinfile:
     dest: /home/{{ env_common_username }}/.gtkrc-2.0
@@ -57,46 +59,41 @@
     create: yes
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
     regexp: ^XKBOPTIONS=
     line: XKBOPTIONS="numpad:microsoft"
-- name: "Ensure /usr/share/X11/xkb/ subdirectories exist"
+
+# Custom keyboard layout
+- name: "Ensure /etc/xkb subdirectories exist"
   become: true
   file:
-    path: /usr/share/X11/xkb/{{ item }}/
+    path: /etc/xkb/{{ item }}
     state: directory
     owner: root
     group: root
-    mode: 0755
-  with_items:
+    mode: "0755"
+  loop:
     - symbols
     - rules
-- name: "Copy the custom keyboard layout definition to symbols/wout"
+- name: "Copy the custom keyboard layout definition to /etc/xkb/symbols/wout"
   become: true
   copy:
     src: keyboard_layout
-    dest: /usr/share/X11/xkb/symbols/wout
+    dest: /etc/xkb/symbols/wout
     owner: root
     group: root
-    mode: 0644
-  notify:
-    - reconfigure keyboard
-- name: "Register the custom keyboard layout in rules/evdev.xml"
+    mode: "0644"
+- name: "Register the custom keyboard layout in /etc/xkb/rules/evdev.xml"
   become: true
-  blockinfile:
-    dest: /usr/share/X11/xkb/rules/evdev.xml
-    create: no
-    insertafter: "  <layoutList>"
-    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK - Custom keyboard layout -->"
-    block: |
-      <layout>
-        <configItem>
-          <name>wout</name>
-          <shortDescription>wout</shortDescription>
-          <description>English (US, Wout)</description>
-        </configItem>
-        <variantList>
-        </variantList>
-      </layout>
-  notify:
-    - reconfigure keyboard
+  copy:
+    src: evdev.xml
+    dest: /etc/xkb/rules/evdev.xml
+    owner: root
+    group: root
+    mode: "0644"
+# Can be removed once deployed everywhere
+- name: "Remove the legacy layout file from /usr/share/X11/xkb"
+  become: true
+  file:
+    path: /usr/share/X11/xkb/symbols/wout
+    state: absent
